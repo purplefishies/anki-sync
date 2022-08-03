@@ -74,3 +74,14 @@ curl localhost:8765 -X POST -d '
             #     ]
             # }]
 # 
+
+# Getting media file names
+
+curl localhost:8765 -X POST -d '
+{
+    "action": "getMediaFilesNames",
+    "version": 6,
+    "params": {
+        "pattern": "_hell*.txt"
+    }
+}'
