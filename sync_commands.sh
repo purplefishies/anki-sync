@@ -55,7 +55,7 @@ cat <<EOF > foo.txt
 }
 EOF
 
-curl localhost:8765 -X POST --data foo.txt
+curl localhost:8765 -X POST --data @foo.txt
 
 curl localhost:8765 -X POST -d '
 {
