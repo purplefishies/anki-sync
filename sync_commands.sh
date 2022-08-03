@@ -21,6 +21,42 @@ curl localhost:8765 -X POST -d '{ "action": "addNote",     "version": 6,     "pa
 
 # Test
 
+cat <<EOF > foo.txt
+{
+    "action": "addNote",
+    "version": 6,
+    "params": {
+        "note": {
+            "deckName": "FOOBAR::BAZ",
+            "modelName": "Basic",
+            "fields": {
+                "Front": "Front Card"
+                "Back": "BAck card"
+            },
+            "options": {
+                "allowDuplicate": false,
+                "duplicateScope": "deck",
+                "duplicateScopeOptions": {
+                    "deckName": "Default",
+                    "checkChildren": false,
+                    "checkAllModels": false
+                }
+            },
+            "audio": [{
+                "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
+                "filename": "Blah.mp3",
+                "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+                "fields": [
+                    "Front"
+                ]
+            }]
+        }
+    }
+}
+EOF
+
+curl localhost:8765 -X POST --data foo.txt
+
 curl localhost:8765 -X POST -d '
 {
     "action": "addNote",
@@ -42,6 +78,14 @@ curl localhost:8765 -X POST -d '
                     "checkAllModels": false
                 }
             },
+            "audio": [{
+                "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=ねこ",
+                "filename": "Blah.mp3",
+                "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+                "fields": [
+                    "Front"
+                ]
+            }]
         }
     }
 }'
@@ -85,3 +129,9 @@ curl localhost:8765 -X POST -d '
         "pattern": "_hell*.txt"
     }
 }'
+
+
+# 
+# Combo , how do we push note cards with audio included
+#
+
