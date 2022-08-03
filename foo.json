@@ -1,0 +1,33 @@
+{
+  "action": "addNote",
+  "version": 6,
+  "params": {
+    "note": {
+      "deckName": "FOOBAR::BAZ",
+      "modelName": "Basic",
+      "fields": {
+        "Front": "Front Card",
+        "Back": "BAck card"   
+      },
+      "options": {
+        "allowDuplicate": false,
+        "duplicateScope": "deck",
+        "duplicateScopeOptions": {
+          "deckName": "Default",
+          "checkChildren": false,
+          "checkAllModels": false
+        }
+      },
+      "audio": [
+        {
+          "url": "https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kanji=猫&kana=",
+          "filename": "Blah.mp3",
+          "skipHash": "7e2c2f954ef6051373ba916f000168dc",
+          "fields": [
+            "Front"
+          ]
+        }
+      ]
+    }
+  }
+}
